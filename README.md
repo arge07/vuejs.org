@@ -22,7 +22,7 @@ Bu dokümanlaştırma projesi şu anda farklı GitHub depolarında orjinalinden 
 ### Türkçe
 
 Türkçe çeviri [vuejs-turkce](https://github.com/vuejs-turkce) tarafından devam etmektedir.
-
+* [Çeviri Planımız ve İlerleyişimiz Şu Şekildedir](https://github.com/orgs/vuejs-turkce/projects/1)
 * Çeviri GitHub Deposu - [/vuejs-turkce/vuejs.org](https://github.com/vuejs-turkce/vuejs.org)
 
 ### Fransızca
