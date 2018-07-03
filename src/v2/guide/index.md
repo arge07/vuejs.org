@@ -1,10 +1,10 @@
 ---
-title: Introduction
+title: Başlarken
 type: guide
 order: 2
 ---
 
-## What is Vue.js?
+## Vue.js nedir?
 
 Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with [modern tooling](single-file-components.html) and [supporting libraries](https://github.com/vuejs/awesome-vue#components--libraries).
 
@@ -12,21 +12,21 @@ If you’d like to learn more about Vue before diving in, we <a id="modal-player
 
 If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](comparison.html).
 
-## Getting Started
+## Başlarken
 
-<p class="tip">The official guide assumes intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.</p>
+<p class="tip">Resmi Rehber orta düzey HTML, CSS ve JavaScript bildiğinizi varsayar. Yeni başlıyorsanız önce temel kavramları öğrenip tekrar geri gelmenizi tavsiye ederiz. Diğer frameworkler ile uğraşmış olmanız size katkı sağlar fakat bilmek zorunda değilsiniz..</p>
 
-The easiest way to try out Vue.js is using the [JSFiddle Hello World example](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Feel free to open it in another tab and follow along as we go through some basic examples. Or, you can <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html">create an <code>index.html</code> file</a> and include Vue with:
+ [JSFiddle Hello World örneği](https://jsfiddle.net/chrisvfritz/50wL7mdz/) Vue.js en kolay deneme yoludur. Basit örnekleri yaparken orda yeni sekme açıp denemekten çekinmeyin. İsterseniz; <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html"><code>index.html</code> dosyasını oluşturup</a> içine Vue kaynağını ekleyerek başlayabilirsiniz:
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 
-The [Installation](installation.html) page provides more options of installing Vue. Note: We **do not** recommend that beginners start with `vue-cli`, especially if you are not yet familiar with Node.js-based build tools.
+ Diğer seçenekler için [Kurulum](installation.html) sayfasına bakınız. Not: Node.js temeliniz yoksa `vue-cli` ile başlamanızı **önermiyoruz**.
 
-## Declarative Rendering
+## Render Etme
 
-At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
+ Vue.js çekirdeği doğrudan DOM işlemlerine odaklanan; basit bir template yazımına sahiptir.
 
 ``` html
 <div id="app">
@@ -37,7 +37,7 @@ At the core of Vue.js is a system that enables us to declaratively render data t
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello Vue!'
+    message: 'Merhaba Vue!'
   }
 })
 ```
@@ -49,21 +49,21 @@ var app = new Vue({
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello Vue!'
+    message: 'Merhaba Vue!'
   }
 })
 </script>
 {% endraw %}
 
-We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Open your browser's JavaScript console (right now, on this page) and set `app.message` to a different value. You should see the rendered example above update accordingly.
+Böylelikle ilk Vue uygulamamızı yazmış olduk. Basitçe template render işine benzesede, Vue arkaplanda çok fazla iş yaptı. Veri ve DOM bir biri ile bağlantılı olarak ve birbiri ile **etkileşimli** olarak çalıştı. Peki bunu nasıl bilebiliriz? Javascript Konsolu açın (bu sayfada sağ tık yapın ve ögeyi inceleye tıklayın) ve `app.message` değişkenine bir değer atayın(Ör: `app.message = 'Vue.js'`). Hızlıca verinin ve çıktının değiştiğini göreceksiniz.
 
-In addition to text interpolation, we can also bind element attributes like this:
+Metin içine bir değişken eklemiz gerektiğinde ne yapmamız gerektiğine bir bakalım. 
 
 ``` html
 <div id="app-2">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds
-    to see my dynamically bound title!
+    Fare ile bu alanın üzerine gelip bir kaç saniye beklediğinizde 
+    dinamik olarak yerleştirlen title özelliğinin değerini göreceksiniz.
   </span>
 </div>
 ```
@@ -71,37 +71,38 @@ In addition to text interpolation, we can also bind element attributes like this
 var app2 = new Vue({
   el: '#app-2',
   data: {
-    message: 'You loaded this page on ' + new Date().toLocaleString()
+    message: 'Sayfanın yüklenme zamanı: ' + new Date().toLocaleString()
   }
 })
 ```
 {% raw %}
 <div id="app-2" class="demo">
   <span v-bind:title="message">
-    Hover your mouse over me for a few seconds to see my dynamically bound title!
+    Fare ile bu alanın üzerine gelip bir kaç saniye beklediğinizde 
+    dinamik olarak yerleştirlen title özelliğinin değerini göreceksiniz.
   </span>
 </div>
 <script>
 var app2 = new Vue({
   el: '#app-2',
   data: {
-    message: 'You loaded this page on ' + new Date().toLocaleString()
+    message: 'Sayfanın yüklenme zamanı: ' + new Date().toLocaleString()
   }
 })
 </script>
 {% endraw %}
 
-Here we are encountering something new. The `v-bind` attribute you are seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, it is basically saying "keep this element's `title` attribute up-to-date with the `message` property on the Vue instance."
+Burada yeni birşey gördik: `v-bind`. v-bind özelliği gördüğümüzde aklımıza bir **direktifin(directive)** çağrıldığı gelmelidir. Vuede direktifler `v-` ile başlar. Tahmin edersiniz ki bu direktifler vue içinde özel olarak DOM render etmek için yapılandırılmıştır. Basitçe anlatmak gerekirse; "v-bind; `title` özelliğinin `message` değişkeni/parametresi ile birlikte değişeceğini göstermektedir.";
 
-If you open up your JavaScript console again and enter `app2.message = 'some new message'`, you'll once again see that the bound HTML - in this case the `title` attribute - has been updated.
+Tekrar Javascript Konsolunu açıp `app2.message = 'yeni mesaj'` olarak çalıştırırsanız, tekrar fare ile üzerine geldiğinizde `title` özelliğinin değiştiğini/güncellendiğini görebilirsiniz.
 
-## Conditionals and Loops
+## Koşullar ve Döngüler
 
-It's easy to toggle the presence of an element, too:
+Basitçe elementi ekleme ve kaldırma yapalım:
 
 ``` html
 <div id="app-3">
-  <span v-if="seen">Now you see me</span>
+  <span v-if="seen">Şimdi beni görüyorsun</span>
 </div>
 ```
 
@@ -116,7 +117,7 @@ var app3 = new Vue({
 
 {% raw %}
 <div id="app-3" class="demo">
-  <span v-if="seen">Now you see me</span>
+  <span v-if="seen">Şimdi beni görüyorsun</span>
 </div>
 <script>
 var app3 = new Vue({
@@ -128,10 +129,11 @@ var app3 = new Vue({
 </script>
 {% endraw %}
 
-Go ahead and enter `app3.seen = false` in the console. You should see the message disappear.
+Tekrar konsola gidip `app3.seen = false` kod parçasını çalıştırısanız span etiketiyle birlikte metnin kaldırıldığı göreceksiniz.
 
-This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](transitions.html) when elements are inserted/updated/removed by Vue.
+Bu örnek bize; etkileşimin sadece veri ve özellik bazlı değil aynı zamanda **DOM elementleri** içinde geçerli olduğunu gösteriyor. Dahası; elementlerin eklenmesi/güncellenmesi/silinmesinde [geçiş efektleri](transitions.html) otomatik sağlanır.
 
+Her biri kendine özgü özelliğe sahip bir kaç direktif daha var. 
 There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
 
 ``` html
